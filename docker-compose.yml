@@ -13,7 +13,7 @@ services:
    flask:
      build: ./flask
      volumes:
-        - /opt/nu_ml_ta/db:/app:z
+        - /opt/nu_ml_ta/app:/app:z
      restart: always
      environment:
        APP_NAME: TweetAnalyser
