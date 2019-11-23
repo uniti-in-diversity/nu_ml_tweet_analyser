@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+   nginx:
+     image: nginx:latest
+     volumes:
+        - /opt/nu_ml_ta/nginx/:/etc/nginx/:z
+     restart: always
+     ports:
+#       - "80:80"
+       - "443:443"
+
+   flask:
+     build: ./flask
+     volumes:
+        - /opt/nu_ml_ta/db:/app:z
+     restart: always
+     environment:
+       APP_NAME: TweetAnalyser
+     expose:
+       - 8080

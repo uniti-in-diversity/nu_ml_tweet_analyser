@@ -1,0 +1,4 @@
+flask
+uwsgi
+pickle-mixin
+scikit-learn
