@@ -2,3 +2,7 @@ flask
 uwsgi
 pickle-mixin
 scikit-learn
+pandas
+numpy
+nltk
+pymorphy2

@@ -7,7 +7,7 @@ services:
         - /opt/nu_ml_ta/nginx/:/etc/nginx/:z
      restart: always
      ports:
-#       - "80:80"
+       - "80:80"
        - "443:443"
 
    flask:
