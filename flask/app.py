@@ -14,7 +14,7 @@ vocabulary = pickle.load(open('/app/vocabulary_r2_1.pkl','rb'))
 def main():
     if flask.request.method == 'GET':
         return render_template('main.html' )
-        
+
     if flask.request.method == 'POST':
         #answer = ''
         exp_s = flask.request.form['tweet']
