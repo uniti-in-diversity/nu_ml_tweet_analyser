@@ -79,8 +79,8 @@ def tw_full_preprocess(text):
 
     return str(return_string)
 
-model_mnb = pickle.load(open('/app/model_mnb_r2.pkl','rb'))
-vocabulary = pickle.load(open('/app/vocabulary.pkl','rb'))
+model_mnb = pickle.load(open('/app/model_mnb_r2_1.pkl','rb'))
+vocabulary = pickle.load(open('/app/vocabulary_r2_1.pkl','rb'))
 
 
 def main():
@@ -88,7 +88,7 @@ def main():
         return render_template('main.html' )
         
     if flask.request.method == 'POST':
-        answer = ''
+        #answer = ''
         exp_s = flask.request.form['tweet']
         exp = tw_full_preprocess(exp_s)
         count_vect = CountVectorizer(analyzer='word', encoding='cp1251', vocabulary=vocabulary)
