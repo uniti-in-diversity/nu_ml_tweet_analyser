@@ -6,8 +6,7 @@ import pymorphy2
 import pickle
 from nltk.corpus import stopwords
 from nltk.tokenize import TweetTokenizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.feature_extraction.text import CountVectorizer
+
 nltk.download('stopwords')
 
 def tw_full_preprocess(text):

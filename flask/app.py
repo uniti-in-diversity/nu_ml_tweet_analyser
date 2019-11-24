@@ -1,6 +1,9 @@
 import flask
 from flask import render_template
 from ta import tweetprepared
+import pickle
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import CountVectorizer
 
 app = flask.Flask(__name__, template_folder='templates')
 
