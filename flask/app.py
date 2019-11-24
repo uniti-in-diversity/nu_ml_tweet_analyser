@@ -5,13 +5,13 @@ import pickle
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import CountVectorizer
 
+
 app = flask.Flask(__name__, template_folder='templates')
+model_mnb = pickle.load(open('/app/model_mnb_r2_1.pkl','rb'))
+vocabulary = pickle.load(open('/app/vocabulary_r2_1.pkl','rb'))
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
-
-model_mnb = pickle.load(open('/app/model_mnb_r2_1.pkl','rb'))
-vocabulary = pickle.load(open('/app/vocabulary_r2_1.pkl','rb'))
 
 
 def main():
@@ -29,11 +29,11 @@ def main():
         exp_vect_2_tfidf = tfidf_transformer.transform(exp_vect_2)
         predict = model_mnb.predict(exp_vect_2_tfidf)
         if predict[0] == 0:
-            answer = 'Негативная тональность'
+            answer = 'Негативное'
         else:
-            answer = 'Позитивная тональность'
+            answer = 'Позитивное'
         #temp = predict[0]
-        return render_template('main.html', result=answer)
+        return render_template('main.html', tweet=exp_s, result=answer)
 
 if __name__ == '__main__':
     app.run()

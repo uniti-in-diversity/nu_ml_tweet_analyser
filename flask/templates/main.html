@@ -1,12 +1,7 @@
 <!doctype html>
 <style>
-body {
-background: url(twitter_logo_big.png) bottom no-repeat;
-color: #ffffff;
-}
 
 form {
-    height: 200px;
     margin: auto;
     width: 55%;
 }
@@ -14,19 +9,30 @@ form {
 .result {
     margin: auto;
     width: 35%;
-    border: 1px solid #ccc;
 }
 </style>
 
 <head>
     <title>Tweet Analyser</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style type="text/css">
+   .user {
+    width: 700px;
+    height: 25px;
+    background: #add8e6;
+    padding: 0 10px;
+    border: none;
+    font-size: 1em;
+    line-height: 46px;
+    }
+  </style>
 </head>
 
 <form action="{{ url_for('main') }}" method="POST">
     <fieldset>
         <legend>Поле ввода:</legend>
         Введите твит:
-        <input name="tweet" type="text" required>
+        <input name="tweet" type="text" class="user" name=""required>
         <br>
         <br>
         <input type="submit">
@@ -35,7 +41,9 @@ form {
 
 <div class="result" align="center">
     {% if result %}
-    	<br> <p style="font-size:50px">Настроение этого твита:</p>
-   		<p style="font-size:50px">{{ result }}</p>
+        <br> <p style="font-size:26px">Настроение этого твита:</p>
+                <p style="font-size:14px">{{ tweet }}</p>
+                <p style="font-size:40px">{{ result }}</p>
+
     {% endif %}
 </div>
