@@ -4,7 +4,7 @@ services:
    nginx:
      image: nginx:latest
      volumes:
-        - /opt/nu_ml_ta/nginx/:/etc/nginx/:z
+        - /opt/nu_ml_tweet_analyser/nginx/:/etc/nginx/:z
      restart: always
      ports:
        - "80:80"
@@ -13,7 +13,7 @@ services:
    flask:
      build: ./flask
      volumes:
-        - /opt/nu_ml_ta/app:/app:z
+        - /opt/nu_ml_tweet_analyser/flask/app:/app:z
      restart: always
      environment:
        APP_NAME: TweetAnalyser
